@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/drom3/static/js/runtime~main.7300b2d3.js"
   },
   {
-    "revision": "c020f3c6a03dda4f6e9c35b8d8d2d61a",
+    "revision": "b22dec8f6ae7891c5b50ae49069481c3",
     "url": "/drom3/index.html"
   }
 ];
