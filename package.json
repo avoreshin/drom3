@@ -1,0 +1,11 @@
+
+{
+  "name": "myapp-spa",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve --single --cache=60000"
+  },
+  "dependencies": {
+    "serve": "latest"
+  }
+}
