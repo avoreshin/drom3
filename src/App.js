@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import MenuMain from "./components/MenuMain";
 
 function App() {
     return (
         <div>
             <header>
+                <MenuMain/>
                 <h1>Welcome to React Router!</h1>
             </header>
             <Routes>
