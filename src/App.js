@@ -1,11 +1,15 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import MenuMain from "./components/MenuMain";
+import SpecCarousel from "./components/SpecCarousel";
 
 function App() {
     return (
         <div>
             <header>
-                <h1>Welcome to React Router!</h1>
+                <MenuMain/>
+                <h1>Продажа автомобилей</h1>
+                <SpecCarousel/>
             </header>
             <Routes>
                 <Route path="/" element={<Home />} />
