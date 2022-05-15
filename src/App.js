@@ -2,17 +2,15 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import MenuMain from "./components/MenuMain";
 import SpecCarousel from "./components/SpecCarousel";
+import MainPage from "./pages/MainPage/MainPage";
+import MyLocation from "./pages/MyLocation";
 
 function App() {
     return (
         <div>
-            <header>
-                <MenuMain/>
-                <h1>Продажа автомобилей</h1>
-                <SpecCarousel/>
-            </header>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<MainPage />} />
+                <Route path="/my_location" element={<MyLocation />} />
                 <Route path="about" element={<About />} />
             </Routes>
         </div>

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {Button, Icon, Menu, MenuItem} from "semantic-ui-react";
 import './MenuMain.css'
 import Logo from '../../images/photo1652437993.jpeg'
@@ -10,6 +10,7 @@ export default class MenuMain extends Component {
 
     handleItemClick =(e, {name}) => this.setState({activeItem: name})
     activateItem;
+
 
     render()
     {const {activeItem} = this.state
@@ -27,8 +28,8 @@ export default class MenuMain extends Component {
                         </Link>
                     </MenuItem>
                     <MenuItem>
-                        <Link to={'/about'}>
-                            <Icon name={'map marker alternate'} color={'red'}> </Icon> Ваш город
+                        <Link to={'/my_location'}>
+                            <Icon name={'map marker alternate'} color={'red'}> </Icon> {this.props.location || "Ваш регион"}
                         </Link>
                     </MenuItem>
 
