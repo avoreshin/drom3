@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import {Button, Icon, Menu, MenuItem} from "semantic-ui-react";
 import './MenuMain.css'
 import Logo from '../../images/photo1652437993.jpeg'
