@@ -1,15 +1,14 @@
 import React from 'react';
 import './CardSpec.css';
-import {Card, Header, Icon, Image} from "semantic-ui-react";
-import {type} from "@testing-library/user-event/dist/type";
-import {Link} from "react-router-dom";
+import {Card, Icon, Image} from "semantic-ui-react";
+
 
 function CardSpec(props) {
 
     const { item } = props;
     let { photo, marka, city, price, model, year } = item;
 
-    year = year.toString().substr(0,4)
+    year = year.toString().substr(0,4);
 
     price = price.toString().replace(/\s+/g, '')
         .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
