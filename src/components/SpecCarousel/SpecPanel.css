@@ -1,7 +1,10 @@
 .card-panel {
-    height: 250px;
-    width: 240px;
+
+    width: auto;
     /*background: #61dafb;*/
-    margin: 12px;
+    margin: 2px;
+
+
+
 }
 
