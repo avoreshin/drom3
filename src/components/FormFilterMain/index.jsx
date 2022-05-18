@@ -30,36 +30,44 @@ function FormFilterMain (props) {
 
 
                     <Form.Group
+                        widths='equal'
 
                         >
                         <Form.Input
-                             width={6}
-                            placeholder ={"Цена от ,Р"}
+                            fluid
+
+                            control={Select}
+                            placeholder ={"Цена от"}
                         />
                         <Form.Input
-                            control={Select} width={6}
+                            fluid
+                            control={Select}
                             placeholder ={"до"}
                         />
-                        <Form.Input width={3}
+                        <Form.Input
+                            fluid
                                    control={Select}
-                                   placeholder ={"Модель"}
+                                   placeholder ={"Год от"}
                         />
-                        <Form.Input width={3}
+                        <Form.Input
+                            fluid
                                    control={Select}
-                                   placeholder ={"Модель"}
+                                   placeholder ={"до"}
                         />
 
-                        <Form.Input width={3}
+                        <Form.Input
+                            fluid
                                    control={Select}
-                                   placeholder ={"Поколение"}
+                                   placeholder ={"КПП"}
                         />
-                        <Form.Input width={3}
+                        <Form.Input
+                            fluid
                                    control={Select}
-                                   placeholder ={"Модель"}
+                                   placeholder ={"Топливо"}
                         />
 
                     </Form.Group>
-                <Form.Checkbox label='I agree to the Terms and Conditions' />
+                <Form.Checkbox label='Только с фотографиями' />
                 <Button color={'black'} type='submit'>Показать</Button>
             </Form>
                 </Segment>
