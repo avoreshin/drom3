@@ -26,13 +26,13 @@ function SpecCarousel() {
     console.log(cardsData)
     return (
 
-        <Flicking
+        <Flicking style={{marginBottom:30}}
             plugins={_plugin}
             viewportTag = "div"
             cameraTag = "div"
             align = "center"
-            onMove = {(e: MoveEvent) => {}}
-            onWillChange = {(e: WillChangeEvent) => {}}
+            // onMove = {(e: MoveEvent) => {}}
+            // onWillChange = {(e: WillChangeEvent) => {}}
             horizontal = {true}
             circular = {true}
         >
@@ -45,8 +45,8 @@ function SpecCarousel() {
             })}
 
             <ViewportSlot>
-                <span className="flicking-arrow-prev"></span>
-                <span className="flicking-arrow-next"></span>
+                <span className="flicking-arrow-prev"> </span>
+                <span className="flicking-arrow-next"> </span>
             </ViewportSlot>
         </Flicking>
     );
