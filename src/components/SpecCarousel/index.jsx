@@ -26,7 +26,7 @@ function SpecCarousel() {
     console.log(cardsData)
     return (
 
-        <Flicking
+        <Flicking style={{marginBottom:30}}
             plugins={_plugin}
             viewportTag = "div"
             cameraTag = "div"

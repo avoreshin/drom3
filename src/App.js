@@ -2,14 +2,19 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import MenuMain from "./components/MenuMain";
 import SpecCarousel from "./components/SpecCarousel";
+import {Button, Container, Form, Grid, Segment} from "semantic-ui-react";
+import FormFilterMain from "./components/FormFilterMain";
 
 function App() {
     return (
         <div>
             <header>
                 <MenuMain/>
-                <h1>Продажа автомобилей</h1>
+                <Container>
+                    <h1 style={{margin: 20}}>Продажа автомобилей</h1>
+                </Container>
                 <SpecCarousel/>
+                <FormFilterMain/>
             </header>
             <Routes>
                 <Route path="/" element={<Home />} />
