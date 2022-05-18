@@ -4,6 +4,7 @@ import MenuMain from "./components/MenuMain";
 import SpecCarousel from "./components/SpecCarousel";
 import {Button, Container, Form, Grid, Segment} from "semantic-ui-react";
 import FormFilterMain from "./components/FormFilterMain";
+import ShowAdsCards from "./components/ShowAdsCards";
 
 function App() {
     return (
@@ -15,6 +16,8 @@ function App() {
                 </Container>
                 <SpecCarousel/>
                 <FormFilterMain/>
+                <ShowAdsCards/>
+
             </header>
             <Routes>
                 <Route path="/" element={<Home />} />
