@@ -42,6 +42,7 @@ export default class MenuMain extends Component {
                         name='Спецтехника'
                         active={activeItem === 'Спецтехника'}
                         onClick={this.handleItemClick}
+
                     />
 
                     <MenuItem
