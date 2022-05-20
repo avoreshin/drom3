@@ -1,23 +1,28 @@
 import React from 'react';
 import './CardSpec.css';
 import {Card, Icon, Image} from "semantic-ui-react";
+// import AnnouncementId from "../../pages/${id}AnnouncementId";
+import {Link} from "react-router-dom";
 
 
 function CardSpec(props) {
 
     const { item } = props;
-    let { photo, marka, city, price, model, year } = item;
+    let {id, photo, marka, city, price, model, year } = item;
 
     year = year.toString().substr(0,4);
 
     price = price.toString().replace(/\s+/g, '')
         .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1");
 
-    console.log({item});
+    console.log({id});
 
     return (
-        <>
-            <Card link={"#"}
+
+            <Link
+            to={id}
+            >
+            <Card
                   color={'olive'}
                   centered
             >
@@ -35,8 +40,8 @@ function CardSpec(props) {
                     </Card.Meta>
                 </Card.Content>
             </Card>
+        </Link>
 
-        </>
     );
 }
 

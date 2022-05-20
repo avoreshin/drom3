@@ -32,11 +32,20 @@ export default class MenuMain extends Component {
                         </Link>
                     </MenuItem>
 
+
+
+                    <Link
+                        to={'/announcementId'}
+                    >
+
                     <MenuItem
                         name='Авто'
                         active={activeItem === 'Авто'}
                         onClick={this.handleItemClick}
                     />
+
+                    </Link>
+
 
                     <MenuItem
                         name='Спецтехника'

@@ -59,8 +59,9 @@ function ShowAdsCards(props) {
                                     <p>
                                         {item.engine}
                                         {", "}
-                                        {item.engine}
+                                        {item.transmission}
                                         {", "}
+                                        {item.body_type}
                                         <br/>
                                         {item.Mileage.toString().replace(/\s+/g, '')
                                             .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1")}{" km"}
@@ -79,7 +80,7 @@ function ShowAdsCards(props) {
                                    <Segment basic>
 
                                        <h3>
-                                        {item.price.toString().replace(/\s+/g, '').replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1")}{" ₽"}
+                                        {item.price.toString().replace(/\s+/g, '').replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1"+ " ")}{" ₽"}
                                         {" "}
 
                                         <Rating

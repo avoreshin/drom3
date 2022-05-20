@@ -1,12 +1,8 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import MenuMain from "./components/MenuMain";
-import SpecCarousel from "./components/SpecCarousel";
-import { Container} from "semantic-ui-react";
-import FormFilterMain from "./components/FormFilterMain";
-import ShowAdsCards from "./components/ShowAdsCards";
 import MainPage from "./pages/MainPage";
-import AnnouncementId from "./pages/AnnouncementId";
+import {AnnouncementId} from "./pages/AnnouncementId";
 
 function App() {
     return (
@@ -17,7 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainPage/>} />
                 <Route path="about" element={<About />} />
-                <Route path="announcementId" element={<AnnouncementId/>} />
+                <Route path="/announcementId/:id" element={<AnnouncementId/>} />
             </Routes>
         </div>
     );
