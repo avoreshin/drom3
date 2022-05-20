@@ -2,7 +2,7 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import MenuMain from "./components/MenuMain";
 import SpecCarousel from "./components/SpecCarousel";
-import {Button, Container, Form, Grid, Segment} from "semantic-ui-react";
+import { Container} from "semantic-ui-react";
 import FormFilterMain from "./components/FormFilterMain";
 import ShowAdsCards from "./components/ShowAdsCards";
 

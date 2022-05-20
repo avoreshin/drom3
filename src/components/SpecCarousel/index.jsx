@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "@egjs/flicking-plugins/dist/arrow.css";
 import './SpecPanel.css'
-import Flicking, {MoveEvent, ViewportSlot, WillChangeEvent} from "@egjs/react-flicking";
+import Flicking, {ViewportSlot} from "@egjs/react-flicking";
 import { Arrow } from "@egjs/flicking-plugins";
 import CardSpec from "../CardSpec";
 

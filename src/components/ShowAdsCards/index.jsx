@@ -1,8 +1,8 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import {Card, Container, Grid, Header, Image, Rating, Segment} from "semantic-ui-react";
+import {Container, Grid, Header, Image, Rating, Segment} from "semantic-ui-react";
 import './ShowAdsCards.css'
-import {Link} from "react-router-dom";
+
 
 function ShowAdsCards(props) {
     const [cardItems, setCardsItems ] = useState([]);
@@ -63,7 +63,7 @@ function ShowAdsCards(props) {
                                         {", "}
                                         <br/>
                                         {item.Mileage.toString().replace(/\s+/g, '')
-                                            .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ')}{" km"}
+                                            .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1")}{" km"}
                                     </p>
 
 
@@ -79,8 +79,7 @@ function ShowAdsCards(props) {
                                    <Segment basic>
 
                                        <h3>
-                                        {item.price.toString().replace(/\s+/g, '')
-                                            .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ')}{" ₽"}
+                                        {item.price.toString().replace(/\s+/g, '').replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1")}{" ₽"}
                                         {" "}
 
                                         <Rating
