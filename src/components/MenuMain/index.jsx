@@ -19,7 +19,7 @@ export default class MenuMain extends Component {
                     secondary
                     inverted
                     color={'black'}
-                    size={''}
+
                 >
                     <MenuItem className='LogoMain'>
                         <Link to={'/'}>

@@ -1,8 +1,8 @@
 import React from 'react';
 import './CardSpec.css';
 import {Card, Icon, Image} from "semantic-ui-react";
-// import AnnouncementId from "../../pages/${id}AnnouncementId";
-import {Link} from "react-router-dom";
+
+// import {Link} from "react-router-dom";
 
 
 function CardSpec(props) {
@@ -13,15 +13,11 @@ function CardSpec(props) {
     year = year.toString().substr(0,4);
 
     price = price.toString().replace(/\s+/g, '')
-        .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1");
+        .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1 ");
 
     console.log({id});
 
     return (
-
-            <Link
-            to={id}
-            >
             <Card
                   color={'olive'}
                   centered
@@ -40,8 +36,6 @@ function CardSpec(props) {
                     </Card.Meta>
                 </Card.Content>
             </Card>
-        </Link>
-
     );
 }
 
