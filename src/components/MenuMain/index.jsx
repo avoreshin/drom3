@@ -19,7 +19,7 @@ export default class MenuMain extends Component {
                     secondary
                     inverted
                     color={'black'}
-                    size={''}
+
                 >
                     <MenuItem className='LogoMain'>
                         <Link to={'/'}>
@@ -32,16 +32,26 @@ export default class MenuMain extends Component {
                         </Link>
                     </MenuItem>
 
+
+
+                    <Link
+                        to={'/announcementId'}
+                    >
+
                     <MenuItem
                         name='Авто'
                         active={activeItem === 'Авто'}
                         onClick={this.handleItemClick}
                     />
 
+                    </Link>
+
+
                     <MenuItem
                         name='Спецтехника'
                         active={activeItem === 'Спецтехника'}
                         onClick={this.handleItemClick}
+
                     />
 
                     <MenuItem

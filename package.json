@@ -5,10 +5,11 @@
   "homepage": "https://avoreshin.github.io/drom3/",
   "dependencies": {
     "@egjs/flicking-plugins": "^4.3.0",
-    "@egjs/react-flicking": "^4.7.0",
+    "@egjs/react-flicking": "^4.7.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^18.0.9",
     "gh-pages": "^3.2.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
