@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import {Container, Form, Header, Input, Segment} from "semantic-ui-react";
+import {Button, Container, Form, Header, Input, Segment} from "semantic-ui-react";
 
 const NewAnn = ({idName}) => {
 
@@ -14,10 +14,13 @@ const NewAnn = ({idName}) => {
                         widths = {'equal'}
 
                     >
-                        <Form.Field  >
+                        <Form.Group  inline>
+                            <label>Марка</label>
                             <Input
-                            label={"Марка"} width={'6'} placeholder='Введите марку автомобиля' />
-                        </Form.Field>
+                                // fluid
+                                width={'10'}
+                                placeholder='Введите марку автомобиля' />
+                        </Form.Group>
                         <Form.Field>
                             <Input label={"Модель"} placeholder='Модель' />
                         </Form.Field>
@@ -37,6 +40,17 @@ const NewAnn = ({idName}) => {
                         <Form.Field >
                             <Input label={"Телефон"} placeholder=' ' />
                         </Form.Field>
+
+                        <Form.Field >
+                            <Input type="file" label={"Фото 1"} placeholder=' ' />
+                        </Form.Field>
+
+
+                        <Button
+                            color={'red'}
+                        type={"submit"}
+                        content={"ОТПРАВИТЬ"}
+                        />
                     </Form>
                 </div>
                 <div style={{flex: '1 240px'}}> </div>
@@ -54,7 +68,7 @@ NewAnn.defaultProps = {
 }
 
 NewAnn.propTypes = {
-    idName: PropTypes.string,
+    idName: PropTypes.number,
 }
 ;
 

@@ -4,7 +4,6 @@ import {Container, Grid, Header, Image, Rating, Segment} from "semantic-ui-react
 import './ShowAdsCards.css'
 import {Link} from "react-router-dom";
 
-
 function ShowAdsCards(props) {
     const [cardItems, setCardsItems ] = useState([]);
     useEffect(() => {
@@ -21,19 +20,16 @@ function ShowAdsCards(props) {
             .catch(error => console.error("data-json.json loader", error));
     }, []);
 
-
-
     return (
         <Container
         style={{marginTop:30}}>
             {cardItems.map(item => {
                 return (
-
                     <Segment
                     >
                         <Link
                             key={item.id}
-                            to = {`/announcementId/${item.id}`}
+                            to = {  `/announcementId/${item.id}`}
                         >
                         <Grid
                         columns={3}
@@ -48,7 +44,6 @@ function ShowAdsCards(props) {
                             <Grid.Column
                             >
                                 <Header
-
                                     as='h3'
                                     color={''}
                                 >
