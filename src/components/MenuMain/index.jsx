@@ -89,10 +89,18 @@ export default class MenuMain extends Component {
                     </MenuItem>
 
                 </Menu>
+                <Link
+                    to = {'/new_ann'}
+                >
+
+
                 <Button
-                    color={'red'}>
+                    color={'red'}
+
+                >
                     <Icon name={'plus circle'}></Icon>
                     Подать объявление</Button>
+                </Link>
 
             </div>
         );

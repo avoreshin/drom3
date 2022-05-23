@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import MenuMain from "./components/MenuMain";
 import MainPage from "./pages/MainPage";
 import {AnnouncementId} from "./pages/AnnouncementId";
+import NewAnn from "./pages/NewAnn";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainPage/>} />
                 <Route path="about" element={<About />} />
+                <Route path="/new_ann" element={<NewAnn />} />
                 <Route path="/announcementId/:id" element={<AnnouncementId/>} />
             </Routes>
         </div>

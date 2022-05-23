@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Container, Header, Image, Label, Message, Segment, Table} from "semantic-ui-react";
+import {Container, Header, Image, Label, Segment, Table} from "semantic-ui-react";
 import {useParams} from 'react-router-dom'
 import {useEffect, useState} from "react";
 
