@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import {Button, Container, Form, Header, Input, Segment} from "semantic-ui-react";
+import {Button, Container, Form, FormGroup, Header, Input, Segment} from "semantic-ui-react";
 
 const NewAnn = ({idName}) => {
 
@@ -12,15 +12,15 @@ const NewAnn = ({idName}) => {
                 <div style={{flex: '0 60%',textAlign: 'end'}} >
                     <Form
                         widths = {'equal'}
-
                     >
-                        <Form.Group  inline>
+                        <FormGroup
+                            className={"input_block"}
+                            inline>
                             <label>Марка</label>
                             <Input
-                                // fluid
-                                width={'10'}
+                                required
                                 placeholder='Введите марку автомобиля' />
-                        </Form.Group>
+                        </FormGroup>
                         <Form.Field>
                             <Input label={"Модель"} placeholder='Модель' />
                         </Form.Field>
