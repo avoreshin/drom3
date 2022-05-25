@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import {Button, Container, Form, FormGroup, Header, Input, Segment} from "semantic-ui-react";
-
+import "./NewAnn.css"
 const NewAnn = ({idName}) => {
 
     return(
@@ -14,14 +14,23 @@ const NewAnn = ({idName}) => {
                         widths = {'equal'}
                     >
                         <FormGroup
-                            className={"input_block"}
                             inline>
                             <label>Марка</label>
                             <Input
+                                className={"input_block"}
                                 required
                                 placeholder='Введите марку автомобиля' />
                         </FormGroup>
                         <Form.Field>
+
+                            <FormGroup
+                                inline>
+                                <label>Модель</label>
+                                <Input
+                                    className={"input_block"}
+                                    required
+                                    placeholder='Модель' />
+                            </FormGroup>
                             <Input label={"Модель"} placeholder='Модель' />
                         </Form.Field>
                         <Form.Field >
