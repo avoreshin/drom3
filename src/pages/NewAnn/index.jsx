@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from "prop-types";
 import {Button, Container, Form, FormGroup, Header, Input, Segment} from "semantic-ui-react";
 import "./NewAnn.css"
-const NewAnn = ({idName}) => {
+const NewAnn = () => {
+    // let items;
+    // let {idUser,
+    //     marka,
+    //     model
+    //
+    // } = items;
 
     return(
         <Container>
@@ -17,6 +23,7 @@ const NewAnn = ({idName}) => {
                             inline>
                             <label>Марка</label>
                             <Input
+
                                 className={"input_block"}
                                 required
                                 placeholder='Введите марку автомобиля' />
@@ -33,6 +40,26 @@ const NewAnn = ({idName}) => {
                             </FormGroup>
                             <Input label={"Модель"} placeholder='Модель' />
                         </Form.Field>
+
+                        <Form.Field>
+
+                            <FormGroup
+                                inline>
+                                <label>Модель</label>
+                                <Input
+                                    className={"input_block"}
+                                    required
+                                    placeholder='Модель' />
+                            </FormGroup>
+                            <Input label={"Модель"} placeholder='Модель' />
+                        </Form.Field>
+
+
+
+
+
+
+
                         <Form.Field >
 
                             <Input label={"Пробег"} placeholder='Пробег' />
