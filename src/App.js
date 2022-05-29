@@ -12,7 +12,7 @@ function App() {
                 <MenuMain/>
             </header>
             <Routes>
-                <Route path="/" element={<MainPage/>} />
+                <Route exact path="/" element={<MainPage/>} />
                 <Route path="about" element={<About />} />
                 <Route path="/new_ann" element={<NewAnn />} />
                 <Route path="/announcementId/:id" element={<AnnouncementId/>} />

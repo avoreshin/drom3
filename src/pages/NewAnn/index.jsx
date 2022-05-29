@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import {Button, Container, Form, FormGroup, Header, Input, Segment} from "semantic-ui-react";
+import {Button, Container, Form, FormGroup, FormTextArea, Header, Input, Label, Segment} from "semantic-ui-react";
 import "./NewAnn.css"
 const NewAnn = () => {
-    // let items;
-    // let {idUser,
-    //     marka,
-    //     model
-    //
-    // } = items;
+
 
     return(
         <Container>
@@ -19,67 +14,45 @@ const NewAnn = () => {
                     <Form
                         widths = {'equal'}
                     >
-                        <FormGroup
-                            inline>
-                            <label>Марка</label>
-                            <Input
-
-                                className={"input_block"}
-                                required
-                                placeholder='Введите марку автомобиля' />
+                        <FormGroup inline>
+                            <label style = {{width: 150}}>Марка</label>
+                            <Input className={"input_block"} required placeholder='Введите марку автомобиля' />
                         </FormGroup>
-                        <Form.Field>
 
-                            <FormGroup
-                                inline>
-                                <label>Модель</label>
-                                <Input
-                                    className={"input_block"}
-                                    required
-                                    placeholder='Модель' />
-                            </FormGroup>
-                            <Input label={"Модель"} placeholder='Модель' />
-                        </Form.Field>
+                        <FormGroup inline>
+                            <label style = {{width: 150}}>Модель</label>
+                            <Input className={"input_block"} required placeholder='Введите модель автомобиля' />
+                        </FormGroup>
 
-                        <Form.Field>
+                        <FormGroup inline>
+                            <label style = {{width: 150}}>Стоимость</label>
+                            <Input className={"input_block"} required placeholder='Введите стоимость автомобиля' />
+                        </FormGroup>
 
-                            <FormGroup
-                                inline>
-                                <label>Модель</label>
-                                <Input
-                                    className={"input_block"}
-                                    required
-                                    placeholder='Модель' />
-                            </FormGroup>
-                            <Input label={"Модель"} placeholder='Модель' />
-                        </Form.Field>
+                        <FormGroup inline>
+                            <label style = {{width: 150}}>Год</label>
+                            <Input className={"input_block"} required placeholder='Введите год автомобиля' />
+                        </FormGroup>
 
+                        <FormGroup inline>
+                            <label style = {{width: 150}}>Пробег</label>
+                            <Input className={"input_block"} required placeholder='Введите пробег автомобиля' />
+                        </FormGroup>
 
+                        <FormGroup inline>
+                            <label style = {{width: 150}}>Город</label>
+                            <Input className={"input_block"} required placeholder='Введите город' />
+                        </FormGroup>
 
+                        <FormGroup inline>
+                        <label style = {{width: 150}}>Телефон</label>
+                        <Input  className={"input_block"} required placeholder='Введите телефон' />
+                    </FormGroup>
 
-
-
-
-                        <Form.Field >
-
-                            <Input label={"Пробег"} placeholder='Пробег' />
-                        </Form.Field>
-                        <Form.Field>
-                            <Input type={'textarea'} label={"Описание"} placeholder=' ' />
-                        </Form.Field>
-                        <Form.Field >
-                            <Input label={"Цена"} placeholder=' ' />
-                        </Form.Field>
-                        <Form.Field >
-                            <Input label={"Город"} placeholder=' ' />
-                        </Form.Field>
-                        <Form.Field >
-                            <Input label={"Телефон"} placeholder=' ' />
-                        </Form.Field>
-
-                        <Form.Field >
-                            <Input type="file" label={"Фото 1"} placeholder=' ' />
-                        </Form.Field>
+                        <FormGroup inline>
+                            <label style = {{width: 150}} >Описание</label>
+                            <FormTextArea  className={"input_block"} required placeholder='' />
+                        </FormGroup>
 
 
                         <Button
