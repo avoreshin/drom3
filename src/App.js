@@ -4,6 +4,7 @@ import MenuMain from "./components/MenuMain";
 import MainPage from "./pages/MainPage";
 import {AnnouncementId} from "./pages/AnnouncementId";
 import NewAnn from "./pages/NewAnn";
+import {EntryPage} from "./pages/EntryPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route exact path="/" element={<MainPage/>} />
                 <Route path="about" element={<About />} />
                 <Route path="/new_ann" element={<NewAnn />} />
+                <Route path="/entry" element={<EntryPage />} />
                 <Route path="/announcementId/:id" element={<AnnouncementId/>} />
             </Routes>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import {Button, Container, Form, FormGroup, FormTextArea, Header, Input, Label, Segment} from "semantic-ui-react";
+import {Button, Container, Form, FormGroup, FormTextArea, Header, Input, Segment} from "semantic-ui-react";
 import "./NewAnn.css"
 const NewAnn = () => {
 
@@ -62,7 +62,7 @@ const NewAnn = () => {
                         />
                     </Form>
                 </div>
-                <div style={{flex: '1 240px'}}> </div>
+                <div style={{flex: '1 140px'}}> </div>
                 </div>
 
 

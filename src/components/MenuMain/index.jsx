@@ -15,7 +15,7 @@ export default class MenuMain extends Component {
     {const {activeItem} = this.state
         return (
             <div className='Header__menu'>
-                <Menu
+                <Menu stackable
                     secondary
                     inverted
                     color={'black'}
@@ -35,7 +35,7 @@ export default class MenuMain extends Component {
 
 
                     <Link
-                        to={'/announcementId'}
+                        to={'/'}
                     >
 
                     <MenuItem
@@ -82,7 +82,7 @@ export default class MenuMain extends Component {
                     <MenuItem>
                         <Link
 
-                            to={'/about'}>
+                            to={'/entry'}>
                             Вход и регистрация
                         </Link>
 
