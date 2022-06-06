@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
-import {Button, Container, Form, Header, Segment} from "semantic-ui-react";
+import {Button, Container, Form, Header, Segment, TextArea} from "semantic-ui-react";
 import {useForm} from "react-hook-form";
 
 import "./NewAnn.css"
@@ -27,13 +27,13 @@ const NewAnn = () => {
         // Поколение
         // Модификация
         // Комплектация
-        // * Пробег
+        mileageKm:["Пробег","Пробег, км"],// * Пробег
         color:["Цвет", "Укажите цвет"],// Цвет
         // Особые отметки
-        // Описание
+        description:["Описание",""],// Описание
         price:["Цена","Укажите цену"],// * Цена
         // * Статус
-        city:["город продажи",""],// * Город продажи
+        city:["Город продажи",""],// * Город продажи
         mobile:["телефон","89123456789"]// * Телефон 1
         // Телефон 2
     }
@@ -49,57 +49,59 @@ const NewAnn = () => {
                         onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
                         className={"input_block"} widths = {'equal'}>
 
-
                         <label > {FormValues.vin[0]}</label>
-                            <input  {...register("vin")}  placeholder={FormValues.vin[1]} />
+                        <input  {...register("vin")}  placeholder={FormValues.vin[1]} />
 
                         <label>{FormValues.make[0]}</label>
-                            <input  {...register("make")}  placeholder={FormValues.make[1]} />
+                        <input  {...register("make")}  placeholder={FormValues.make[1]} />
+                        
+                        <label>{FormValues.model[0]}</label>
+                        <input  {...register("model")}  placeholder={FormValues.model[1]} />
 
+                        <label>{FormValues.year[0]}</label>
+                        <input  {...register("year")}  placeholder={FormValues.year[1]} />
 
-
-                        <label>{FormValues.drive_unit[0]}</label>
-                            <input  {...register("transmission")}  placeholder={FormValues.drive_unit[1]} />
-
+                        <label>{FormValues.transmission[0]}</label>
+                        <input  {...register("transmission")}  placeholder={FormValues.transmission[1]} />
 
                         <label>{FormValues.body_type[0]}</label>
-                            <input  {...register("engine")}  placeholder={FormValues.body_type[1]} />
+                        <input  {...register("body_type")}  placeholder={FormValues.body_type[1]} />
 
+                        <label>{FormValues.engine[0]}</label>
+                        <input  {...register("engine")}  placeholder={FormValues.engine[1]} />
+
+                        <label>{FormValues.drive_unit[0]}</label>
+                        <input  {...register("transmission")}  placeholder={FormValues.transmission[1]} />
+
+                        <label>{FormValues.mileageKm[0]}</label>
+                        <input  {...register("mileageKm")}  placeholder={FormValues.mileageKm[1]} />
 
                         <label>{FormValues.color[0]}</label>
-                            <input  {...register("engine")}  placeholder={FormValues.color[1]} />
+                        <input  {...register("color")}  placeholder={FormValues.color[1]} />
 
+                        <label>{FormValues.description[0]}</label>
+                        <textarea {...register("description")}  placeholder={FormValues.description[1]} />
 
+                        <label>{FormValues.price[0]}</label>
+                        <input  {...register("price")}  placeholder={FormValues.price[1]} />
 
+                        <label>{FormValues.city[0]}</label>
+                        <input  {...register("city")}  placeholder={FormValues.city[1]} />
 
-                        {/*<InputAddForm  name = {FormValues.year[0]} placeholder={FormValues.year[1]} />*/}
-                        {/*<InputAddForm  name = {FormValues.transmission[0]} placeholder={FormValues.transmission[1]} />*/}
-                        {/*<InputAddForm  name = {FormValues.engine[0]} placeholder={FormValues.engine[1]} />*/}
-                        {/*<InputAddForm  name = {FormValues.drive_unit[0]} placeholder={FormValues.drive_unit[1]} />*/}
-                        {/*<InputAddForm  name = {FormValues.body_type[0]} placeholder={FormValues.body_type[1]} />*/}
-                        {/*<InputAddForm  name = {FormValues.color[0]} placeholder={FormValues.color[1]} />*/}
-                        {/*<InputAddForm  name = {FormValues.price[0]} placeholder={FormValues.price[1]} />*/}
-                        {/*<FormGroup inline >*/}
-                        {/*    <label style = {{width: 150}} >Описание</label>*/}
-                        {/*    <FormTextArea style={{paddingRight: "0"}} basic required placeholder='' />*/}
-                        {/*</FormGroup>*/}
-
-                        {/*<InputAddForm  name = {FormValues.mobile[0]} placeholder={FormValues.mobile[1]} />*/}
-
+                        <label>{FormValues.mobile[0]}</label>
+                        <input  {...register("mobile")}  placeholder={FormValues.mobile[1]} />
+                <Segment basic>
+                </Segment>
 
                         <Button
                             color={'red'}
                             type={"submit"}
                             content={"Подать оъявление и добавить фото"}
                         />
-                        <p><p>{data}</p></p>
                     </Form>
                 </div>
                 <div style={{flex: '1 140px'}}> </div>
                 </div>
-
-
-
             </Segment>
         </Container>
     )
