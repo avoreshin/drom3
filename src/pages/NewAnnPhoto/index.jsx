@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
 import { Button, Container, Form, Header, Segment } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
-import "./NewAnn.css";
+
 import { useNavigate } from "react-router-dom";
 
 const NewAnn = () => {
@@ -46,15 +47,10 @@ const NewAnn = () => {
   return (
     <Container>
       <Segment basic>
-        <Header as={"h2"}> Добавить объявление</Header>
+        <Header as={"h2"}> Добавление фотографии</Header>
         <div style={{ display: "flex" }}>
           <div style={{ flex: "0 60%", textAlign: "end" }}>
-            <Form
-              //   onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
-              onSubmit={handleSubmit(onSubmit)}
-              className={"input_block"}
-              widths={"equal"}
-            >
+            <Form onSubmit={handleSubmit(onSubmit)} widths={"equal"}>
               <label> {FormValues.vin[0]}</label>
               <input {...register("vin")} placeholder={FormValues.vin[1]} />
 

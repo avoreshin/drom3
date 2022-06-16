@@ -1,9 +1,9 @@
-.input_block{
-    width: 100%;
-    /*color: #db2828;*/
-    padding: 0;
+.input_block {
+  width: 100%;
+  /*color: #db2828;*/
+  padding: 0;
 }
 
-label{
-    float: left;
+label {
+  float: left;
 }
