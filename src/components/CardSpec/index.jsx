@@ -15,8 +15,6 @@ function CardSpec(props) {
     .replace(/\s+/g, "")
     .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1 ");
 
-  console.log({ id });
-
   return (
     <Card color={"olive"} centered>
       <Image className={"CardSpecImg"} src={photo[0].url} alt={photo.alt} />

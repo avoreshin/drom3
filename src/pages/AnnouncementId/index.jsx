@@ -11,7 +11,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const AnnouncementId = () => {
-  console.log(useParams());
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
@@ -20,7 +19,7 @@ const AnnouncementId = () => {
       .then((res) => res.json())
       .then((res) => {
         let x = res.data.filter((item) => item.id === +id);
-        console.log(x);
+
         return x[0];
       })
       .then((data) => setPost(data));

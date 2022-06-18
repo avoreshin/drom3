@@ -24,7 +24,6 @@ function SpecCarousel() {
       .catch((error) => console.error("data-json.json loader", error));
   }, []);
 
-  console.log(cardsData);
   return (
     <Flicking
       style={{ marginBottom: 30 }}

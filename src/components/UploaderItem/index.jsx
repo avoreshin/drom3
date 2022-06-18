@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
 import ImgCrop from 'antd-img-crop';
 import { Upload } from 'antd';
 import 'antd/dist/antd.css';
@@ -48,7 +47,7 @@ const UploaderItem = () => {
                 onChange={onChange}
                 onPreview={onPreview}
             >
-                {fileList.length < 3 && '+ Upload'}
+                {fileList.length < 15 && '+ Upload'}
             </Upload>
         </ImgCrop>
     );
