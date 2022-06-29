@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import "./NewAnn.css";
 import { useNavigate } from "react-router-dom";
 
+
+import UploaderItem from '../../components/UploaderItem'
+
 const NewAnn = () => {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
@@ -13,8 +16,10 @@ const NewAnn = () => {
 
   const onSubmit = (data) => {
     setData(JSON.stringify(data));
-    navigate("/new_ann_photo");
+    // navigate("/new_ann_photo");
+
   };
+
 
   let FormValues;
   FormValues = {
@@ -117,18 +122,43 @@ const NewAnn = () => {
                 {...register("mobile")}
                 placeholder={FormValues.mobile[1]}
               />
-              <Segment basic></Segment>
 
-              <Button
-                color={"red"}
-                type={"submit"}
-                content={"Подать оъявление и добавить фото"}
+              <input {...register("photo")}
+              type={"file"}
+              
               />
+
+
+              <Segment basic></Segment>
+{/* add Photo  */}
+              <div style={{ display: "flex" }}>
+                <div
+                  style={
+                    {
+                      // flex: "0 60%",
+                      // background: "#333",
+                    }
+                  }
+                >
+                  {/* <DragAndDrop/> */}
+                  <UploaderItem />
+
+                  <Button
+                    color={"red"}
+                    type={"submit"}
+                    content={"Предварительный просмотр"}
+                  />
+                </div>
+                {/* <div style={{ flex: "1 140px" }}> </div> */}
+              </div>
+
+             
             </Form>
           </div>
           <div style={{ flex: "1 140px" }}> </div>
         </div>
-        <p>{onSubmit}</p>
+        <p>{data}</p>
+        {/* <img src={data.photo[0]}/> */}
       </Segment>
     </Container>
   );
