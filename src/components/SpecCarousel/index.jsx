@@ -11,7 +11,7 @@ function SpecCarousel() {
 
   const [cardsData, setCardsData] = useState([]);
   useEffect(() => {
-    fetch(`https://avoreshin.github.io/json-api/data-json.json`)
+    fetch(`http://localhost:3000/post`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);
@@ -19,7 +19,7 @@ function SpecCarousel() {
         return response.json();
       })
       .then((data) => {
-        setCardsData(data.data);
+        setCardsData(data);
       })
       .catch((error) => console.error("data-json.json loader", error));
   }, []);

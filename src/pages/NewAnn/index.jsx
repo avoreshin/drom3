@@ -13,6 +13,12 @@ const NewAnn = () => {
 
   const onSubmit = (data) => {
     setData(JSON.stringify(data));
+    fetch("http://localhost:3000/post", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    })
+    console.log(data);
     navigate("/new_ann_photo");
   };
 

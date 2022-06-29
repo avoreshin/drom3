@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 function ShowAdsCards(props) {
   const [cardItems, setCardsItems] = useState([]);
   useEffect(() => {
-    fetch(`https://avoreshin.github.io/json-api/data-json.json`)
+    fetch(`http://localhost:3000/post`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);
@@ -22,7 +22,7 @@ function ShowAdsCards(props) {
         return response.json();
       })
       .then((data) => {
-        setCardsItems(data.data);
+        setCardsItems(data);
       })
       .catch((error) => console.error("data-json.json loader", error));
   }, []);
@@ -45,7 +45,7 @@ function ShowAdsCards(props) {
                 <Grid.Column>
                   <Header as="h3" color={""}>
                     <div>
-                      {item.marka} {item.model}
+                      {item.make.name} {item.model.name}
                       {", "}
                       {item.year}
                     </div>
@@ -53,13 +53,13 @@ function ShowAdsCards(props) {
                   <p>
                     {item.engine}
                     {", "}
-                    {item.transmission}
+                    {item.transmission.name}
                     {", "}
-                    {item.body_type}
+                    {item.body_type.name}
                     <br />
-                    {item.Mileage.toString()
-                      .replace(/\s+/g, "")
-                      .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1 ")}
+                    {/*!!!!!!!!!!!ВЕРНУТЬ МЕТОДЫ!!!!!!!!!!! */}
+                    {item.mileage}
+                    {/*!!!!!!!!!!!ВЕРНУТЬ МЕТОДЫ!!!!!!!!!!! */}
                     {" км"}
                   </p>
                 </Grid.Column>
@@ -79,7 +79,7 @@ function ShowAdsCards(props) {
                     </h3>
                   </Segment>
                   <Segment basic />
-                  <Segment basic>{item.city}</Segment>
+                  <Segment basic>{item.city.name}</Segment>
                 </Grid.Column>
               </Grid>
             </Link>

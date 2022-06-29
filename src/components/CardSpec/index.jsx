@@ -6,7 +6,7 @@ import { Card, Icon, Image } from "semantic-ui-react";
 
 function CardSpec(props) {
   const { item } = props;
-  let { id, photo, marka, city, price, model, year } = item;
+  let { id, photo, make, city, price, model, year } = item;
 
   year = year.toString().substr(0, 4);
 
@@ -17,7 +17,7 @@ function CardSpec(props) {
 
   return (
     <Card color={"olive"} centered>
-      <Image className={"CardSpecImg"} src={photo[0].url} alt={photo.alt} />
+      <Image className={"CardSpecImg"} src={photo[0].url} alt={photo[0].alt} />
       <div className={"CardSpecPrice"}>
         {" "}
         {price} <Icon name={"rub"} />
@@ -25,11 +25,11 @@ function CardSpec(props) {
       <Card.Content>
         <div className={"CardSpecTitle"}>
           <Icon name={"car"} />
-          {marka} {model} {year}
+          {make.name} {model.name} {year}
         </div>
         <Card.Meta extra>
           <Icon name={"map marker alternate"} />
-          {city}
+          {city.name}
         </Card.Meta>
       </Card.Content>
     </Card>

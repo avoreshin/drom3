@@ -15,22 +15,22 @@ const AnnouncementId = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    fetch(`https://avoreshin.github.io/json-api/data-json.json`)
+    fetch(`http://localhost:3000/post`)
       .then((res) => res.json())
       .then((res) => {
-        let x = res.data.filter((item) => item.id === +id);
-
+        let x = res.filter((item) => item.id === id);
         return x[0];
       })
       .then((data) => setPost(data));
   }, [id]);
 
+    console.log(post)
   return (
     <Container>
       {post && (
         <>
           <h2 style={{ margin: 20 }}>
-            Продажа {post.marka} {post.model}
+            Продажа {post.make.name} {post.model.name}
             {", "}
             {post.year}
             {"год"}
@@ -42,7 +42,7 @@ const AnnouncementId = () => {
                   style={{ minWidth: "100%" }}
                   rounded
                   verticalAlign="middle"
-                  src={post.photo[1].url}
+                  src={post.photo[0].url}
                   size={"medium"}
                 ></Image>
               </Segment>
@@ -79,7 +79,7 @@ const AnnouncementId = () => {
                       <Header as="h5" children={`Коробка передач`} disabled />
                     </Table.Cell>
                     <Table.Cell>
-                      <Header.Content> {post.transmission}</Header.Content>
+                      <Header.Content> {post.transmission.name}</Header.Content>
                     </Table.Cell>
                   </Table.Row>
 
@@ -88,7 +88,7 @@ const AnnouncementId = () => {
                       <Header as="h5" children={`Привод`} disabled />
                     </Table.Cell>
                     <Table.Cell>
-                      <Header.Content> {post.drive_unit}</Header.Content>
+                      <Header.Content> {post.drive_unit.name}</Header.Content>
                     </Table.Cell>
                   </Table.Row>
 
@@ -97,7 +97,7 @@ const AnnouncementId = () => {
                       <Header as="h5" children={`Тип кузова`} disabled />
                     </Table.Cell>
                     <Table.Cell>
-                      <Header.Content> {post.body_type}</Header.Content>
+                      <Header.Content> {post.body_type.name}</Header.Content>
                     </Table.Cell>
                   </Table.Row>
 
@@ -115,7 +115,7 @@ const AnnouncementId = () => {
                       <Header as="h5" children={`Пробег, км`} disabled />
                     </Table.Cell>
                     <Table.Cell>
-                      <Header.Content> {post.Mileage}</Header.Content>
+                      <Header.Content> {post.mileageKm}</Header.Content>
                     </Table.Cell>
                   </Table.Row>
                 </Table>
