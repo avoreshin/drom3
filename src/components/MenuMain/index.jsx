@@ -3,6 +3,7 @@ import {Button, Icon, Menu, MenuItem} from "semantic-ui-react";
 import "./MenuMain.css";
 import Logo from "../../images/photo1652437993.jpeg";
 import {Link} from "react-router-dom";
+import LoginGoogle from "../LoginGoogle";
 
 export default class MenuMain extends Component {
     state = {activeItem: "Автомобили"};
@@ -13,7 +14,11 @@ export default class MenuMain extends Component {
     render() {
         const {activeItem} = this.state;
         return (<div className="Header__menu">
-            <Menu stackable secondary inverted color={"black"}>
+            <Menu
+                className = "Menu_wrapper"
+                fluid
+                stackable secondary inverted color={"black"}
+            >
                 <MenuItem className="LogoMain">
                     <Link to={"/"}>
                         <img src={Logo} alt="logo"/>
@@ -67,16 +72,23 @@ export default class MenuMain extends Component {
                 {/*    active={activeItem === "Еще"}*/}
                 {/*    onClick={this.handleItemClick}*/}
                 {/*/>*/}
+
+
+
+                <Link to={"/new_ann"}>
+                    <Button color={"red"}>
+                        <Icon name={"plus circle"}/>
+                        Подать объявление
+                    </Button>
+                </Link>
+
                 <MenuItem>
-                    <Link to={"/entry"}>Вход и регистрация</Link>
+                    <LoginGoogle/>
+                    {/*<Link to={"/entry"}>Вход и регистрация</Link>*/}
                 </MenuItem>
+
+
             </Menu>
-            <Link to={"/new_ann"}>
-                <Button color={"red"}>
-                    <Icon name={"plus circle"}/>
-                    Подать объявление
-                </Button>
-            </Link>
         </div>);
     }
 }

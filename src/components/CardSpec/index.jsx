@@ -2,8 +2,6 @@ import React from "react";
 import "./CardSpec.css";
 import { Card, Icon, Image } from "semantic-ui-react";
 
-// import {Link} from "react-router-dom";
-
 function CardSpec(props) {
   const { item } = props;
   let { id, photo, marka, city, price, model, year } = item;

@@ -17,3 +17,7 @@ img {
 .Header__menu a {
     color: aquamarine;
 }
+
+.Menu_wrapper{
+    align-items: center;
+}
