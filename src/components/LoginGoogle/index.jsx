@@ -39,8 +39,8 @@ const LoginGoogle = () => {
     }, [])
 
     return (<Space size={10}>
-        <div id="signInDiv"></div>
-        {Object.keys(user).length != 0 &&
+        <div id="signInDiv"/>
+        {Object.keys(user).length !== 0 &&
             <>
                 <Image circular src={user.picture}/>
                 {user.name}
@@ -48,7 +48,7 @@ const LoginGoogle = () => {
         }
 
         {//если у пользователя нет аттрибутов, то он разлогинен
-            Object.keys(user).length != 0 && <Button color={"red"} onClick={(e) => handleSignOut(e)}>Выйти</Button>}
+            Object.keys(user).length !== 0 && <Button color={"red"} onClick={(e) => handleSignOut(e)}>Выйти</Button>}
 
     </Space>);
 }
