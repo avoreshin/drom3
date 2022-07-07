@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Icon, Menu, MenuItem} from "semantic-ui-react";
+import {Button, Dropdown, Icon, Menu, MenuItem} from "semantic-ui-react";
 import "./MenuMain.css";
 import Logo from "../../images/photo1652437993.jpeg";
 import {Link} from "react-router-dom";
@@ -25,12 +25,15 @@ export default class MenuMain extends Component {
                     </Link>
                 </MenuItem>
                 <MenuItem>
-                    <Link to={"/about"}>
+
                         <Icon name={"map marker alternate"} color={"red"}>
                             {" "}
                         </Icon>{" "}
-                        Ваш город
-                    </Link>
+                    <Dropdown
+                    placeholder={"Ваш город"}
+                    options={}
+                    />
+
                 </MenuItem>
 
                 <Link to={"/"}>
