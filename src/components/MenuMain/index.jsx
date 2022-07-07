@@ -31,7 +31,7 @@ export default class MenuMain extends Component {
                         </Icon>{" "}
                     <Dropdown
                     placeholder={"Ваш город"}
-                    options={}
+                    options={""}
                     />
 
                 </MenuItem>
