@@ -37,8 +37,7 @@ fetch(`https://avoreshin.github.io/json-api/data-json.json`)
 function FormFilterMain(props) {
     let made = "Made / Марка"
     let count = 13;
-    const optionMade =
-
+    const optionMade = //сюда подать данные поля Марка
         [
             {key: 0, text: 'Toyota(' + count + ')', value: "Toyota"},
             {key: 1, text: 'Kia'},
