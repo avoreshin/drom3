@@ -1,11 +1,8 @@
-import React, {useContext} from "react";
+import React from "react";
 import { Container } from "semantic-ui-react";
 import SpecCarousel from "../../components/SpecCarousel";
 import FormFilterMain from "../../components/FormFilterMain";
 import ShowAdsCards from "../../components/ShowAdsCards";
-
-// const context = useContext(contextValue);
-
 
 function MainPage(props) {
   return (

@@ -4,7 +4,7 @@ import { Card, Icon, Image } from "semantic-ui-react";
 
 function CardSpec(props) {
   const { item } = props;
-  let { id, photo, marka, city, price, model, year } = item;
+  let {photo, marka, city, price, model, year } = item;
 
   year = year.toString().substr(0, 4);
 

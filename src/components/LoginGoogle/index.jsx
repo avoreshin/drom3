@@ -1,9 +1,9 @@
-import React, {Fragment} from "react";
+import React from "react";
 
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode"
-import {Button, Header, Image} from "semantic-ui-react";
-import {Space} from "antd";
+import { Image, Button } from "semantic-ui-react";
+import { Space } from "antd";
 
 
 const LoginGoogle = () => {
@@ -33,16 +33,16 @@ const LoginGoogle = () => {
             callback: handleCallbackResponse
         });
 
-        google.accounts.id.renderButton(document.getElementById("signInDiv"), {theme: "outline", size: "large"});
+        google.accounts.id.renderButton(document.getElementById("signInDiv"), { theme: "outline", size: "large" });
 
         google.accounts.id.prompt();
     }, [])
 
     return (<Space size={10}>
-        <div id="signInDiv"/>
+        <div id="signInDiv" />
         {Object.keys(user).length !== 0 &&
             <>
-                <Image circular src={user.picture}/>
+                <Image circular src={user.picture} />
                 {user.name}
             </>
         }

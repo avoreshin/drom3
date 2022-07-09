@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
 import UploaderItem from "../../components/UploaderItem";
-import DragAndDrop from "../../components/DragAndDrop"
 
 const NewAnnPhoto = () => {
   const { register, handleSubmit } = useForm();
