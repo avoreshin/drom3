@@ -4,90 +4,102 @@ import * as React from "react";
 import {
     Button, Container, Dropdown, Form, FormField, Segment, Select,
 } from "semantic-ui-react";
+import { renderIntoDocument } from "react-dom/test-utils";
 
-
-function FormFilterMain(props) {
+function FormFilterMain({ name, setName }) {
 
     const [made1, setMade1] = useState([]);
-    // const [car, setCar] = useState({
-    //     key: 0, text: '', count: 0, value: ''
-    // });
-    const car = {key: 0, text: '', count: 0, value: ''
-
+    const marka100 = []
+    const arr = [];
+    const car = {
+        key: 0, text: '', count: 0, value: ''
     }
-    // useEffect(() => {
-    //     fetchAnn();
-    // }, []);
-
-    let marka100 = [];
-
-
+    const setMark = {}
 
     let fetchAnn = async () => {
         const data = await fetch(`https://avoreshin.github.io/json-api/data-json.json`);
         const filter = await data.json()
+        // setMade1(filter.result)
+        Object.values(filter).map(it => {
 
-        setMade1(filter.result)
+            it.map(i => marka100.push(i.marka.replace(/["' ]/g, "")))
 
-        let markaAll = () => {
-
-            for (const key in filter.data) {
-
-                marka100.push(filter.data[key].marka);
-
-            }
-        }
-
-        markaAll();
+        })
         const count = {}
-        marka100.forEach(element => {
+        marka100.forEach((element) => {
             count[element] = (count[element] || 0) + 1;
+            if (setMark.hasOwnProperty(element.replace(/["']/g, ""))) {
+                setMark[element]++
+            } else {
+                const key = element.replace(/["']/g, "");
+                setMark[element] = 1;
+            }
         })
-        const set = new Set(marka100.sort());
-        // console.log(set.values())
-        // set.forEach()
-        // arr.push(set.values());
-        let i = 0;
-        set.forEach((key) => {
-           car.key = i
-            car.text = `${key}(${car.count})`
-          car.value = key
-            // console.log(car)
-            i++;
 
+        Object.keys(setMark).forEach((key, index) => {
+            arr.push({
+                key: index,
+                value: key,
+                count: setMark[key],
+                text: `${key}(${setMark[key]})`,
+            })
         })
+        // console.log(arr);
+
+        // hadlChange = (e, {})
     };
 
-    // console.log(car)
-    let made = "Made / Марка";
     let count = 13;
-    // console.log(car)
     fetchAnn();
-    console.log(car)
-    const optionMade =
-    // сюда подать данные поля Марка
-    [
+    const optionMade = arr
 
-        {key: 0, text: "Toyota(" + count + ")", value: "Toyota"},
-        {key: 1, text: "Kia"},
-        {key: 2, text: "Vaz"},
-    ];
+
+    const [name1, setName1] = React.useState('Марка')
+
+    const handleChange = (_e, { value }) => {
+        setName1(value)
+    }
+
+    const handleSubmit = (e) => {
+        console.log("±!!!!");
+        setName(name1)
+        console.log("±!!!!");
+    }
+
+
+    // const handleChange = (event) => {
+    //     const [name, value] = event.target;
+    //     setName((prevState) => {
+    //         return {
+    //     //         ...prevState,
+    //             [name]: value
+    //         }
+    //     })
+    // }
+
     return (<Container>
         <p>{made1}</p>
         <Segment placeholder>
-            <Form widths={"equal"}>
+            <Form onSumbit={handleSubmit} widths={"equal"}>
                 <h2>Поиск объявлений</h2>
                 <Form.Group widths={24}>
-                    <Select
-                        selection
-                        compact
-                        width={9}
-                        placeholder={made}
+                    <Form.Select
                         options={optionMade}
-                    >
+                        placeholder={name1}
 
+                        // name='name'
+                        value={name1}
+                        onChange={handleChange}
+                    // onSumbit = {handleSubmit}
+                    // name="marka"
+                    // value={ }
+                    // control={Select}
+                    // width={8}
+                    // placeholder={made}
+                    // options={optionMade}
+                    // onChange={this.hadlChange}
 
-                    </Select>
+                    />
 
 
                     <FormField width={8} control={Select} placeholder={"Модель"} />
@@ -103,11 +115,20 @@ function FormFilterMain(props) {
 
                     <Form.Input fluid control={Select} placeholder={"КПП"} />
                     <Form.Input fluid control={Select} placeholder={"Топливо"} />
+
                 </Form.Group>
                 <Form.Checkbox label="Только с фотографиями" />
-                <Button color={"black"} type="submit">
-                    Показать
-                </Button>
+
+                <Form.Group>
+                    <Form.Button color={"black"} onClick={() => setName(name1)}>
+
+                        Показать
+                    </Form.Button>
+                    <Form.Button color={"grey"} onClick={() => setName("")}>
+
+                        Показать все
+                    </Form.Button>
+                </Form.Group>
             </Form>
         </Segment>
     </Container>);
