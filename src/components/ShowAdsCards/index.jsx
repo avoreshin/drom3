@@ -11,7 +11,7 @@ import {
 import "./ShowAdsCards.css";
 import { Link } from "react-router-dom";
 
-function ShowAdsCards({filterMarka, name}) {
+function ShowAdsCards({filterMarka, made}) {
 
   const [cardItems, setCardsItems] = useState([]);
   useEffect(() => {
@@ -25,19 +25,14 @@ function ShowAdsCards({filterMarka, name}) {
       .then((data) => {
         // const tmp = cardItems;
         console.log(data.data);
-        if (name === '') {
+        if (made === '' || made === 'Марка' ) {
           setCardsItems(data.data);
         } else {
-          setCardsItems(data.data.filter(i => i.marka.replace(' ', '') === name))
+          setCardsItems(data.data.filter(i => i.marka.replace(' ', '') === made))
         }
       })
       .catch((error) => console.error("data-json.json loader", error));
-  }, [name]);
-
-  // React.useEffect(() => {
-  //   const tmp = cardItems;
-  //   setCardsItems(tmp.filter(i => i.marka === name))
-  // }, [name])
+  }, [made]);
 
   return (
     <Container style={{ marginTop: 30 }}>

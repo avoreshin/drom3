@@ -6,9 +6,9 @@ import {
 } from "semantic-ui-react";
 import { renderIntoDocument } from "react-dom/test-utils";
 
-function FormFilterMain({ name, setName }) {
+function FormFilterMain({ name, setMade }) {
 
-    const [made1, setMade1] = useState([]);
+    // const [made1, setMade1] = useState([]);
     const marka100 = []
     const arr = [];
     const car = {
@@ -54,22 +54,23 @@ function FormFilterMain({ name, setName }) {
     const optionMade = arr
 
 
-    const [name1, setName1] = React.useState('Марка')
+    const [made1, setMade1] = React.useState('Марка')
 
     const handleChange = (_e, { value }) => {
-        setName1(value)
+        setMade1(value);
+        localStorage.setItem('made', value);
     }
 
     const handleSubmit = (e) => {
         console.log("±!!!!");
-        setName(name1)
+        setMade(made1)
         console.log("±!!!!");
     }
 
 
     // const handleChange = (event) => {
     //     const [name, value] = event.target;
-    //     setName((prevState) => {
+    //     setMade((prevState) => {
     //         return {
     //     //         ...prevState,
     //             [name]: value
@@ -85,10 +86,10 @@ function FormFilterMain({ name, setName }) {
                 <Form.Group widths={24}>
                     <Form.Select
                         options={optionMade}
-                        placeholder={name1}
+                        placeholder={localStorage.getItem('made')|| made1 }
 
                         // name='name'
-                        value={name1}
+                        value={made1}
                         onChange={handleChange}
                     // onSumbit = {handleSubmit}
                     // name="marka"
@@ -120,11 +121,11 @@ function FormFilterMain({ name, setName }) {
                 <Form.Checkbox label="Только с фотографиями" />
 
                 <Form.Group>
-                    <Form.Button color={"black"} onClick={() => setName(name1)}>
+                    <Form.Button color={"black"} onClick={() => setMade(made1)}>
 
                         Показать
                     </Form.Button>
-                    <Form.Button color={"grey"} onClick={() => setName("")}>
+                    <Form.Button color={"grey"} onClick={() => setMade("Марка")}>
 
                         Показать все
                     </Form.Button>
