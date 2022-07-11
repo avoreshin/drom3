@@ -15,15 +15,26 @@ function FormFilterMain({ name, setMade }) {
     const arrMarka = [];
     const setMark = {}
 
+    const model100  = []
+    const arrModel = []
+    const setMod = {}
 
     let fetchAnn = async () => {
         const data = await fetch(`https://avoreshin.github.io/json-api/data-json.json`);
         const filter = await data.json()
+
         Object.values(filter).map(it => {
-
             it.map(i => marka100.push(i.marka.replace(/["' ]/g, "")))
-
         })
+
+        Object.values(filter).map(it => {
+            it.map(i => model100.push(i.model.replace(/["' ]/g, "")))
+        })
+
+
+
+
+
         const count = {}
         let NumOfAllMarks = 0;
         marka100.forEach((element) => {
@@ -50,15 +61,25 @@ function FormFilterMain({ name, setMade }) {
                 text: `${key}(${setMark[key]})`,
             })
         })
+
+        Object.keys(setMod).forEach((key, index) => {
+            arrModel.push({
+                key: index + 1,
+                value: key,
+                count: setMod[key],
+                text: `${key}(${setMod[key]})`,
+            })
+        })
     };
 
     fetchAnn();
     const optionMade = arrMarka
 
     const [made1, setMade1] = React.useState('Марка')
+    const [model1, setModel1] = React.useState('Модель')
 
     const handleChange = (_e, { value }) => {
-        // console.log(value)
+
         if (value === 'Показать все') {
             setMade1('Марка');
         } else {
@@ -71,14 +92,25 @@ function FormFilterMain({ name, setMade }) {
         setMade(made1)
     }
 
-    let optionModel;
+// MODEL FILTER
+    let optionModel = arrModel;
 
+    const handleChangeModel = (_e, { value }) => {
+
+        if (value === 'Показать все') {
+            setModel1('Марка');
+        } else {
+            setModel1(value);
+        }
+        localStorage.setItem('model', value);
+    }
     function toglee() {
         return made1 === "Марка";
     }
 
     return (<Container>
         <p>{made1}</p>
+
         <Segment placeholder>
             <Form onSumbit={handleSubmit} widths={"equal"}>
                 <h2>Поиск объявлений</h2>
@@ -92,9 +124,9 @@ function FormFilterMain({ name, setMade }) {
 
                     <Form.Select
                         options={optionModel}
-                        placeholder={"Модель" || localStorage.getItem('made')|| made1 }
-                        value={made1}
-                        onChange={handleChange}
+                        placeholder={"Модель" || localStorage.getItem('model')|| model1 }
+                        value={model1}
+                        onChange={handleChangeModel}
                         disabled={toglee()}
                     />
 
