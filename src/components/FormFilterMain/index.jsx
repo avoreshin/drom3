@@ -2,30 +2,30 @@ import { useState, useEffect } from "react";
 import * as React from "react";
 
 import {
-    Button, Container, Dropdown, Form, FormField, Segment, Select,
+    Container,
+    Form,
+    FormField,
+    Segment,
+    Select,
 } from "semantic-ui-react";
-import { renderIntoDocument } from "react-dom/test-utils";
 
 function FormFilterMain({ name, setMade }) {
 
-    // const [made1, setMade1] = useState([]);
     const marka100 = []
-    const arr = [];
-    const car = {
-        key: 0, text: '', count: 0, value: ''
-    }
+    const arrMarka = [];
     const setMark = {}
+
 
     let fetchAnn = async () => {
         const data = await fetch(`https://avoreshin.github.io/json-api/data-json.json`);
         const filter = await data.json()
-        // setMade1(filter.result)
         Object.values(filter).map(it => {
 
             it.map(i => marka100.push(i.marka.replace(/["' ]/g, "")))
 
         })
         const count = {}
+        let NumOfAllMarks = 0;
         marka100.forEach((element) => {
             count[element] = (count[element] || 0) + 1;
             if (setMark.hasOwnProperty(element.replace(/["']/g, ""))) {
@@ -34,49 +34,48 @@ function FormFilterMain({ name, setMade }) {
                 const key = element.replace(/["']/g, "");
                 setMark[element] = 1;
             }
+            NumOfAllMarks++;
         })
-
+        arrMarka.push({
+            key: 0,
+            value: 'Показать все',
+            count: NumOfAllMarks,
+            text: `Показать все(${NumOfAllMarks})`,
+        })
         Object.keys(setMark).forEach((key, index) => {
-            arr.push({
-                key: index,
+            arrMarka.push({
+                key: index + 1,
                 value: key,
                 count: setMark[key],
                 text: `${key}(${setMark[key]})`,
             })
         })
-        // console.log(arr);
-
-        // hadlChange = (e, {})
     };
 
-    let count = 13;
     fetchAnn();
-    const optionMade = arr
-
+    const optionMade = arrMarka
 
     const [made1, setMade1] = React.useState('Марка')
 
     const handleChange = (_e, { value }) => {
-        setMade1(value);
+        // console.log(value)
+        if (value === 'Показать все') {
+            setMade1('Марка');
+        } else {
+            setMade1(value);
+        }
         localStorage.setItem('made', value);
     }
 
     const handleSubmit = (e) => {
-        console.log("±!!!!");
         setMade(made1)
-        console.log("±!!!!");
     }
 
+    let optionModel;
 
-    // const handleChange = (event) => {
-    //     const [name, value] = event.target;
-    //     setMade((prevState) => {
-    //         return {
-    //     //         ...prevState,
-    //             [name]: value
-    //         }
-    //     })
-    // }
+    function toglee() {
+        return made1 === "Марка";
+    }
 
     return (<Container>
         <p>{made1}</p>
@@ -87,20 +86,18 @@ function FormFilterMain({ name, setMade }) {
                     <Form.Select
                         options={optionMade}
                         placeholder={localStorage.getItem('made')|| made1 }
-
-                        // name='name'
                         value={made1}
                         onChange={handleChange}
-                    // onSumbit = {handleSubmit}
-                    // name="marka"
-                    // value={ }
-                    // control={Select}
-                    // width={8}
-                    // placeholder={made}
-                    // options={optionMade}
-                    // onChange={this.hadlChange}
-
                     />
+
+                    <Form.Select
+                        options={optionModel}
+                        placeholder={"Модель" || localStorage.getItem('made')|| made1 }
+                        value={made1}
+                        onChange={handleChange}
+                        disabled={toglee()}
+                    />
+
 
 
                     <FormField width={8} control={Select} placeholder={"Модель"} />

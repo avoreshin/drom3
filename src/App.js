@@ -6,12 +6,16 @@ import { AnnouncementId } from "./pages/AnnouncementId";
 import NewAnn from "./pages/NewAnn";
 import NewAnnPhoto from "./pages/NewAnnPhoto";
 import { EntryPage } from "./pages/EntryPage";
+import {useState} from "react";
 
 function App() {
+
+    const [city, setCity] = useState("Выберите город")
+
   return (
     <div>
       <header>
-        <MenuMain />
+        <MenuMain city={city} setCity={setCity}/>
       </header>
       <Routes>
         <Route exact path="/" element={<MainPage />} />

@@ -4,20 +4,34 @@ import "./MenuMain.css";
 import Logo from "../../images/photo1652437993.jpeg";
 import {Link} from "react-router-dom";
 import LoginGoogle from "../LoginGoogle";
+import styled from 'styled-components';
+
 
 export default class MenuMain extends Component {
     state = {activeItem: "Автомобили"};
 
     handleItemClick = (e, {name}) => this.setState({activeItem: name});
     activateItem;
+    optionsCity = [
+        {key: 0, text: 'Москва', count: 0, value: 'Москва'},
+        {key: 1, text: 'Казань', count: 0, value: 'Казань'},
+        {key: 2, text: 'Санкт-Петербург', count: 0, value: 'Санкт-Петербург'},
+        {key: 3, text: 'Уфа', count: 0, value: 'Уфа'},
+        {key: 4, text: 'Владивосток', count: 0, value: 'Владивосток'},
+        {key: 5, text: 'Барнаул', count: 0, value: 'Барнаул'},
+        {key: 6, text: 'Сочи', count: 0, value: 'Сочи'}
+    ];
 
     render() {
         const {activeItem} = this.state;
         return (<div className="Header__menu">
             <Menu
-                className = "Menu_wrapper"
+                className="Menu_wrapper"
                 fluid
-                stackable secondary inverted color={"black"}
+                stackable
+                secondary
+                inverted
+                color={"black"}
             >
                 <MenuItem className="LogoMain">
                     <Link to={"/"}>
@@ -25,13 +39,12 @@ export default class MenuMain extends Component {
                     </Link>
                 </MenuItem>
                 <MenuItem>
-
-                        <Icon name={"map marker alternate"} color={"red"}>
-                            {" "}
-                        </Icon>{" "}
-                    <Dropdown
-                    placeholder={"Ваш город"}
-                    options={""}
+                    <Icon name={"map marker alternate"} color={"red"}>
+                        {" "}
+                    </Icon>{" "}
+                    <DropCity
+                        placeholder={this.props.city}
+                        options={this.optionsCity}
                     />
 
                 </MenuItem>
@@ -77,7 +90,6 @@ export default class MenuMain extends Component {
                 {/*/>*/}
 
 
-
                 <Link to={"/new_ann"}>
                     <Button color={"red"}>
                         <Icon name={"plus circle"}/>
@@ -95,3 +107,7 @@ export default class MenuMain extends Component {
         </div>);
     }
 }
+
+const DropCity = styled(Dropdown)`
+  width: 150px;
+`;
