@@ -1,18 +1,24 @@
 .Header__menu {
-  background-color: black;
-  color: firebrick;
-  padding: 7px;
+    background-color: black;
+    color: firebrick;
+    padding: 7px;
 }
+
 .LogoMain,
 img {
-  height: 40px;
-  width: auto;
+    height: 40px;
+    width: auto;
 }
 
 .Header__menu a:hover {
-  color: ivory;
+    color: ivory;
 }
 
 .Header__menu a {
-  color: aquamarine;
+    color: aquamarine;
 }
+
+.Menu_wrapper{
+    align-items: center;
+}
+

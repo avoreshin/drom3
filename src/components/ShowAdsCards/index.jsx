@@ -11,7 +11,8 @@ import {
 import "./ShowAdsCards.css";
 import { Link } from "react-router-dom";
 
-function ShowAdsCards(props) {
+function ShowAdsCards({filterMarka, made}) {
+
   const [cardItems, setCardsItems] = useState([]);
   useEffect(() => {
     fetch(`https://avoreshin.github.io/json-api/data-json.json`)
@@ -22,10 +23,16 @@ function ShowAdsCards(props) {
         return response.json();
       })
       .then((data) => {
-        setCardsItems(data.data);
+        // const tmp = cardItems;
+        console.log(data.data);
+        if (made === '' || made === 'Марка' ) {
+          setCardsItems(data.data);
+        } else {
+          setCardsItems(data.data.filter(i => i.marka.replace(' ', '') === made))
+        }
       })
       .catch((error) => console.error("data-json.json loader", error));
-  }, []);
+  }, [made]);
 
   return (
     <Container style={{ marginTop: 30 }}>

@@ -2,11 +2,9 @@ import React from "react";
 import "./CardSpec.css";
 import { Card, Icon, Image } from "semantic-ui-react";
 
-// import {Link} from "react-router-dom";
-
 function CardSpec(props) {
   const { item } = props;
-  let { id, photo, marka, city, price, model, year } = item;
+  let {photo, marka, city, price, model, year } = item;
 
   year = year.toString().substr(0, 4);
 
@@ -14,8 +12,6 @@ function CardSpec(props) {
     .toString()
     .replace(/\s+/g, "")
     .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1 ");
-
-  console.log({ id });
 
   return (
     <Card color={"olive"} centered>
