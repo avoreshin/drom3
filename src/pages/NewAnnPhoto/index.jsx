@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 
 import { Button, Container, Header, Segment } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
@@ -23,14 +22,7 @@ const NewAnnPhoto = () => {
       <Segment basic>
         <Header as={"h2"}> Добавление фотографии</Header>
         <div style={{ display: "flex" }}>
-          <div
-            style={{
-              // flex: "0 60%",
-
-              // background: "#333",
-            }}
-          >
-            {/* <DragAndDrop/> */}
+          <div>
             <UploaderItem />
 
             <Button
@@ -39,7 +31,6 @@ const NewAnnPhoto = () => {
               content={"Предварительный просмотр"}
             />
           </div>
-          {/* <div style={{ flex: "1 140px" }}> </div> */}
         </div>
         <p>{onSubmit}</p>
       </Segment>

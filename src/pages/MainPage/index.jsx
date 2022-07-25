@@ -7,7 +7,7 @@ import FormFilterMain from "../../components/FormFilterMain";
 import ShowAdsCards from "../../components/ShowAdsCards";
 
 function MainPage(props) {
-  const [made, setMade] = useState('Все')
+  const [made, setMade] = useState('')
 
   return (
     <>

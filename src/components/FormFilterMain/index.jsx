@@ -78,7 +78,7 @@ function FormFilterMain({name, setMade}) {
 
     const handleChange = (_e, {value}) => {
 
-        if (value === 'Все') {
+        if (value === 'Показать все') {
             setMade1('Марка');
         } else {
             setMade1(value);

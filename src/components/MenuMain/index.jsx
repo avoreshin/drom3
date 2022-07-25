@@ -6,12 +6,10 @@ import {Link} from "react-router-dom";
 import LoginGoogle from "../LoginGoogle";
 import styled from 'styled-components';
 
-
 export default class MenuMain extends Component {
     state = {activeItem: "Автомобили"};
 
     handleItemClick = (e, {name}) => this.setState({activeItem: name});
-    activateItem;
     optionsCity = [
         {key: 0, text: 'Москва', count: 0, value: 'Москва'},
         {key: 1, text: 'Казань', count: 0, value: 'Казань'},
@@ -101,8 +99,6 @@ export default class MenuMain extends Component {
                     <LoginGoogle/>
                     {/*<Link to={"/entry"}>Вход и регистрация</Link>*/}
                 </MenuItem>
-
-
             </Menu>
         </div>);
     }
