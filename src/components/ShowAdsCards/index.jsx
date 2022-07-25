@@ -26,9 +26,12 @@ function ShowAdsCards({filterMarka, made}) {
             .then((data) => {
                 // const tmp = cardItems;
                 console.log(data.data);
-                if (made === '' || made === 'Марка') {
+                console.log('this', localStorage.getItem('made') )
+                made =  localStorage.getItem('made')
+                if (made === '' || made === 'Марка' || made === 'Все' ) {
                     setCardsItems(data.data);
                 } else {
+
                     setCardsItems(data.data.filter(i => i.marka.replace(' ', '') === made))
                 }
             })

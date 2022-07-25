@@ -20,6 +20,8 @@ function FormFilterMain({name, setMade}) {
     const model100 = []
     const arrModel = []
     const setMod = {}
+    const [made1, setMade1] = React.useState('Марка')
+    const [model1, setModel1] = React.useState('Модель')
 
     let fetchAnn = async () => {
         const data = await fetch(`https://avoreshin.github.io/json-api/data-json.json`);
@@ -59,7 +61,6 @@ function FormFilterMain({name, setMade}) {
                 text: `${key}(${setMark[key]})`,
             })
         })
-
         Object.keys(setMod).forEach((key, index) => {
             arrModel.push({
                 key: index + 1,
@@ -72,9 +73,6 @@ function FormFilterMain({name, setMade}) {
 
     fetchAnn();
     const optionMade = arrMarka
-
-    const [made1, setMade1] = React.useState('Марка')
-    const [model1, setModel1] = React.useState('Модель')
 
     const handleChange = (_e, {value}) => {
 
