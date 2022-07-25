@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/drom3/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
-    "url": "/drom3/static/media/icons.8e3c7f55.eot"
-  },
-  {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
     "url": "/drom3/static/media/icons.0ab54153.woff2"
+  },
+  {
+    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
+    "url": "/drom3/static/media/icons.8e3c7f55.eot"
   },
   {
     "revision": "faff92145777a3cbaf8e7367b4807987",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/drom3/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "19d63d39b85ced9e0e7ea5487c190936",
+    "revision": "4df2558529f8bf32e9ca9268b4ca5608",
     "url": "/drom3/index.html"
   }
 ];
