@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import * as React from "react";
+import styled from 'styled-components/macro'
 
 import {
     Container,
@@ -8,14 +9,15 @@ import {
     Segment,
     Select,
 } from "semantic-ui-react";
+import {Input} from "antd";
 
-function FormFilterMain({ name, setMade }) {
+function FormFilterMain({name, setMade}) {
 
     const marka100 = []
     const arrMarka = [];
     const setMark = {}
 
-    const model100  = []
+    const model100 = []
     const arrModel = []
     const setMod = {}
 
@@ -31,10 +33,6 @@ function FormFilterMain({ name, setMade }) {
             it.map(i => model100.push(i.model.replace(/["' ]/g, "")))
         })
 
-
-
-
-
         const count = {}
         let NumOfAllMarks = 0;
         marka100.forEach((element) => {
@@ -49,7 +47,7 @@ function FormFilterMain({ name, setMade }) {
         })
         arrMarka.push({
             key: 0,
-            value: 'Показать все',
+            value: 'Все',
             count: NumOfAllMarks,
             text: `Показать все(${NumOfAllMarks})`,
         })
@@ -78,9 +76,9 @@ function FormFilterMain({ name, setMade }) {
     const [made1, setMade1] = React.useState('Марка')
     const [model1, setModel1] = React.useState('Модель')
 
-    const handleChange = (_e, { value }) => {
+    const handleChange = (_e, {value}) => {
 
-        if (value === 'Показать все') {
+        if (value === 'Все') {
             setMade1('Марка');
         } else {
             setMade1(value);
@@ -92,72 +90,88 @@ function FormFilterMain({ name, setMade }) {
         setMade(made1)
     }
 
-// MODEL FILTER
     let optionModel = arrModel;
 
-    const handleChangeModel = (_e, { value }) => {
+    const handleChangeModel = (_e, {value}) => {
 
-        if (value === 'Показать все') {
+        if (value === 'Все') {
             setModel1('Марка');
         } else {
             setModel1(value);
         }
         localStorage.setItem('model', value);
     }
+
     function toglee() {
         return made1 === "Марка";
     }
 
     return (<Container>
-        <p>{made1}</p>
+        {/*<p>{made1}</p>*/}
 
-        <Segment placeholder>
-            <Form onSumbit={handleSubmit} widths={"equal"}>
+        <Segment placeholder
+                 css={`
+                   width: 926px;
+
+                 `}>
+            <Form onSumbit={handleSubmit}>
                 <h2>Поиск объявлений</h2>
-                <Form.Group widths={24}>
-                    <Form.Select
-                        options={optionMade}
-                        placeholder={localStorage.getItem('made')|| made1 }
-                        value={made1}
-                        onChange={handleChange}
+                <div css={`
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 20px`}>
+                    <Select css={`width: 100%;
+                      margin-right: 10px`}
+                            select
+                            options={optionMade}
+                            placeholder={localStorage.getItem('made') || made1}
+                            value={made1}
+                            onChange={handleChange}
                     />
 
-                    <Form.Select
-                        options={optionModel}
-                        placeholder={"Модель" || localStorage.getItem('model')|| model1 }
-                        value={model1}
-                        onChange={handleChangeModel}
-                        disabled={toglee()}
+                    <Select css={`width: 100%;
+                      margin-right: 10px`}
+                            options={optionModel}
+                            placeholder={"Модель" || localStorage.getItem('model') || model1}
+                            value={model1}
+                            onChange={handleChangeModel}
+                            disabled={toglee()}
                     />
+                    <Select css={`width: 100%`} control={Select} placeholder={"Поколение"}/>
+                </div>
 
+                <div css={`
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 20px`}>
+                    <div css={`display: flex;
+                      margin-right: 10px`}>
+                        <Input fluid control={Select} placeholder={"Цена от"}/>
+                        <Input fluid control={Select} placeholder={"до"}/>
+                    </div>
+                    <div css={`display: flex;
+                      margin-right: 10px`}>
+                        <Input fluid control={Select} placeholder={"Год от"}/>
+                        <Input fluid control={Select} placeholder={"до"}/>
+                    </div>
 
+                    <div css={`display: flex;
+                      `}>
+                        <Input fluid control={Select} placeholder={"КПП"}/>
+                        <Input fluid control={Select} placeholder={"Топливо"}/>
+                    </div>
 
-                    <FormField width={8} control={Select} placeholder={"Модель"} />
+                </div>
 
-                    <FormField width={8} control={Select} placeholder={"Поколение"} />
-                </Form.Group>
-
-                <Form.Group widths="equal">
-                    <Form.Input fluid control={Select} placeholder={"Цена от"} />
-                    <Form.Input fluid control={Select} placeholder={"до"} />
-                    <Form.Input fluid control={Select} placeholder={"Год от"} />
-                    <Form.Input fluid control={Select} placeholder={"до"} />
-
-                    <Form.Input fluid control={Select} placeholder={"КПП"} />
-                    <Form.Input fluid control={Select} placeholder={"Топливо"} />
-
-                </Form.Group>
-                <Form.Checkbox label="Только с фотографиями" />
 
                 <Form.Group>
                     <Form.Button color={"black"} onClick={() => setMade(made1)}>
-
                         Показать
                     </Form.Button>
                     <Form.Button color={"grey"} onClick={() => setMade("Марка")}>
-
                         Показать все
                     </Form.Button>
+                    <Form.Checkbox label="Только с фотографиями"/>
                 </Form.Group>
             </Form>
         </Segment>
